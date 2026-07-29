@@ -103,6 +103,10 @@ def build_feature_row(payload: PredictionRequest) -> pd.DataFrame:
 
 
 # --- routes ------------------------------------------------------------
+@app.get("/")
+def root():
+    return {"message": "FastAPI is running"}
+
 @app.get("/health")
 def health():
     return {"status": "ok", "model_loaded": model is not None}
